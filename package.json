@@ -1,11 +1,11 @@
 {
-  "name": "codus",
-  "version": "1.0.0",
+  "name": "codus.js",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "dev": "node index.js"
   },
-  "keywords": [],
+  "keywords": ["number", "cords", "text", "array"],
   "author": "Slavus54",
   "license": "NSTU",
   "description": "",

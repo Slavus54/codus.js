@@ -44,23 +44,95 @@ class Codus {
     }
 
     round(num = 1e1, residue = 0) {
-        let result = Boolean(residue) ? String(num).split('.') : parseInt(num)
-        let left = result[1].split('').map(el => Number(el)).reverse()
-        let toCompare = left[left.length - residue] 
-        let pick = 0
+        let result
 
-        for (let i = 0; i < left.length - (residue + 1); i++) {
-            let current = Boolean(i) ? pick : left[i]
-            let next = left[i + 1]
-            
-            if (current && next) {
-                pick = current > 4 ? next + 1 : next
+        if (Boolean(residue)) {
+            result = String(num).split('.')
+
+            let left = result[1].split('').map(el => Number(el)).reverse()
+            let toCompare = left[left.length - residue] 
+            let pick = 0
+    
+            for (let i = 0; i < left.length - (residue + 1); i++) {
+                let current = Boolean(i) ? pick : left[i]
+                let next = left[i + 1]
+                
+                if (current && next) {
+                    pick = current > 4 ? next + 1 : next
+                }
             }
-        }
+    
+            result = result[0] + '.' + left.slice(left.length - (residue - 1)).reverse().join('') + (pick > 4 ? toCompare + 1 : toCompare)
 
-        result = result[0] + '.' + left.slice(left.length - (residue - 1)).reverse().join('') + (pick > 4 ? toCompare + 1 : toCompare)
+        } else {
+            result = parseInt(num)
+        }       
 
         return result
+    }
+
+    percent(value = 0, total = 1e1, round = 0) {
+        let result = this.round(total / 1e2 * value, round)
+
+        return result
+    }
+    
+    part(value = 0, total = 1e1, round = 0) {
+        let result = this.round(value / total * 1e2, round)
+
+        return result
+    }
+
+    random(list = [], shift = 0) {
+        let slide = this.percent(shift, list.length)
+        let index = slide + Math.round(Math.random() * list.length)
+        
+        while (index > list.length - 1) {
+            index = slide + Math.round(Math.random() * list.length)
+        }
+
+        let result = list[index]
+
+        return result
+    }
+
+    calories(weight = 7e1, distance = 5e2, pulse = 11e1, round = 0) {
+        let minutes = distance * 5
+        let result = weight * minutes * 14e-3 * (12e-2 * (pulse - 7))
+    
+        result = this.round(result, round)
+
+        return result
+    }
+
+    debounce(func, timestamp = 5e2) {
+        let timeout 
+
+        return function() {
+            clearInterval(timeout)
+
+            timeout = setTimeout(() => func.apply(this, arguments), timestamp)
+        }
+    }
+
+    cash(change = 1e3, coins = []) {
+        let values = []
+        let index = coins.length - 1
+
+        while (change !== 0 || index > 0) {
+            let coin = coins[index]
+            let result = Math.floor(change / coin)
+
+            if (result !== 0) {
+                values = [...values, {coin, amount: result}]
+
+                change -= result * coin
+            }
+
+            index--
+        }
+
+        return {values, change}
     }
 
     go(url = '') {
