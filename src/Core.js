@@ -135,6 +135,73 @@ class Codus {
         return {values, change}
     }
 
+    mutateObject(object = {}, properties = [], values = []) {
+        properties.map((property, idx) => {
+            object[property] = values[idx]
+        })
+
+        return object
+    }
+
+    splice(list = [], borders = [], values = [], check = null) {
+        let result = list.slice(0, borders[0]) 
+    
+        for (let i = borders[0]; i < borders[1]; i++) {
+            let item = list[i]
+            let value = values[i - borders[0]]
+            let valid = eval(`${item} ${check}`)
+
+            result = [...result, valid ? value : item]
+        }
+
+        result = [...result, ...list.slice(borders[1])]
+        
+        return result
+    }
+
+    is(obj1 = {}, obj2 = {}, round = 0) {
+        let keys1 = Object.keys(obj1)
+        let keys2 = Object.keys(obj2)
+        let length = keys1.length >= keys2.length ? keys1.length : keys2.length
+        let result = 0
+        
+        for (let i = 0; i < length; i++) {
+            if (keys1[i] === keys2[i]) {
+                result++
+            }
+        }
+
+        result = this.part(result, length, round)
+
+        return result
+    }
+
+    depth(list = [], position = 1) {
+        let result = 0
+
+        for (let i = 0; i < list.length; i++) {
+            let value = list[i]
+            let counter = 0
+
+            while (Array.isArray(value)) {
+                value = value[Boolean(counter) ? 0 : position - 1]
+                counter++
+            }
+           
+            if (counter > result) {
+                result = counter
+            }
+        }
+
+        return result
+    }
+
+    objectFilter(obj = {}, type = 'string') {
+        let result = Object.fromEntries(Object.entries(obj).filter(([_, value]) => typeof value === type))
+
+        return result
+    }
+
     go(url = '') {
         window.open(url)
     }
