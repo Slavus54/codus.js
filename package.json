@@ -1,6 +1,6 @@
 {
   "name": "codus.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "scripts": {
     "dev": "node index.js"

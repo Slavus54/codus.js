@@ -96,6 +96,29 @@ class Codus {
         return result
     }
 
+    card(text = '', isConvert = true) {
+        let result = ''
+
+        if (isConvert) {
+
+            text.split('').slice(0, 16).map((el, idx) => {
+                if ((idx + 1) % 4 === 0) {
+                    result += `${el}-`
+                } else {
+                    result += el
+                }
+            })
+
+            result = result.slice(0, result.length - 1)
+
+        } else {
+
+            result = text.split('-').join('').slice(0, 16)
+        }
+
+        return result
+    }
+
     calories(weight = 7e1, distance = 5e2, pulse = 11e1, round = 0) {
         let minutes = distance * 5
         let result = weight * minutes * 14e-3 * (12e-2 * (pulse - 7))
@@ -198,6 +221,38 @@ class Codus {
 
     objectFilter(obj = {}, type = 'string') {
         let result = Object.fromEntries(Object.entries(obj).filter(([_, value]) => typeof value === type))
+
+        return result
+    }
+
+    filterArrayByDigit(list = [], index = 1, value = 1) {
+        let result = []
+
+        list.map(el => {
+            if (Number(String(el).split('').reverse()[index]) === value) {
+                result = [...result, el]
+            }
+        })
+
+        return result
+    }
+
+    reverseObject(obj = {}) {
+        let result = Object.fromEntries(Object.entries(obj).map(([key, value]) => [value, key]))    
+
+        return result
+    }
+
+    textSubstring(text = '', substring = '') {
+        let result = 0
+        
+        substring = substring.trim().toLocaleLowerCase()
+
+        text.split(' ').map(el => {
+            if (el.toLocaleLowerCase().includes(substring)) {
+                result++
+            }
+        })
 
         return result
     }
