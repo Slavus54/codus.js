@@ -4,7 +4,7 @@
 
 Library to improve own experience working with JS.
 
-Current version: **1.0.4**
+Current version: **1.0.5**
 
 ## Links
 
@@ -47,4 +47,30 @@ const codus = new Codus()
 
 --- **card** (*text* = '', *isConvert* = true) : return text converted into card number or vice versa.    
 
---- **calories** (*weight* = 7e1, *distance* = 5e2, *pulse* = 11e1, *round* = 0) : return number of burned calories by running *distance* in km.        
+--- **calories** (*weight* = 7e1, *distance* = 5e2, *pulse* = 11e1, *round* = 0) : return number of burned calories by running *distance* in km.    
+
+--- **debounce** (*func*, *timestamp* = 5e2) : return function with an interval.
+
+--- **cash** (*change* = 1e3, *coins* = []) : counts number of different coins to pay *change* and return an object with residue and number of coins {change, values}.    
+
+--- **mutateObject** (*object* = {}, *properties* = [], *values* = []) : change values of object's properties with an array and return updated object.    
+
+--- **splice** (*list* = [], *borders* = [], *values* = [], *check* = null) : update elements of array inside index *borders* with *values* if *check* expression is valid.  
+
+--- **is** (*obj1* = {}, *obj2* = {}, *round* = 0) : return % of objects similarity.            
+
+--- **depth** (*list* = [], *position* = 1) : return level of array's depth.            
+
+--- **objectFilter** (*obj* = {}, *type* = 'string') : return object only with *type* of property's value.      
+
+--- **filterArrayByDigit** (*list* = [], *index* = 1, *value* = 1) : validate each array number by check *value* equal to digit of number by *index* and return list of numbers.        
+
+--- **reverseObject** (*obj* = {}) : exchange key and value in each property of object and return object.      
+
+--- **textSubstring** (*text* = '', *substring* = '') : counts number of word includes *substring* and return it.   
+
+--- **binary** (*num* = null, *isConvert* = true) : convert decimal number to binary (by default) or binary to number.  
+
+--- **go** (*url* = '') : open browser's folder with source by *url*.   
+
+--- **copy** (*text* = '') : copy message by *text* and save it in clipboard.   

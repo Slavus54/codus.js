@@ -257,16 +257,51 @@ class Codus {
         return result
     }
 
+    binary(num = null, isConvert = true) {
+        if (num === null) {
+            return num
+        }
+
+        let result
+
+        if (isConvert) {
+
+            result = ''
+
+            while (num > 0) {
+                let residue = num % 2
+                let isEven = residue === 0
+                
+                if (!isEven) {
+                    num -= residue
+                }
+
+                result += isEven ? '0' : '1' 
+                num /= 2
+            }
+
+            result = result.split('').reverse().join('')
+
+        } else {
+
+            result = 0
+
+            num.split('').reverse().map((el, idx) => {
+                result += Number(el) * 2**idx
+            })
+
+            result = Number(result)
+        }
+
+        return result
+    }
+
     go(url = '') {
         window.open(url)
     }
 
     copy(text = '') {
         window.navigator.clipboard.writeText(text)
-    }
-
-    paste() {
-        return window.navigator.clipboard.readText()
     }
 }
 
