@@ -296,6 +296,30 @@ class Codus {
         return result
     }
 
+    getObjectProperty(obj = {}, properties = []) {
+        let result = obj[properties[0]]
+
+        for (let i = 1; i < properties.length; i++) {
+            result = result[properties[i]]
+        }
+
+        return result
+    }
+
+    sum(list = [], isEven = null, min = 0, max = 1e6) {
+        let result = 0
+
+        list = list.filter(el => el >= min && el <= max)
+
+        if (isEven !== null) {
+            list = list.filter(el => el % 2 === 0 && isEven || el % 2 !== 0 && !isEven)
+        }
+        
+        result = list.reduce((acc, cur) => acc + cur)
+
+        return result
+    }
+
     go(url = '') {
         window.open(url)
     }

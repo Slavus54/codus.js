@@ -4,7 +4,7 @@
 
 Library to improve own experience working with JS.
 
-Current version: **1.0.5**
+Current version: **1.0.6**
 
 ## Links
 
@@ -70,6 +70,10 @@ const codus = new Codus()
 --- **textSubstring** (*text* = '', *substring* = '') : counts number of word includes *substring* and return it.   
 
 --- **binary** (*num* = null, *isConvert* = true) : convert decimal number to binary (by default) or binary to number.  
+
+--- **getObjectProperty** (*obj* = {}, *properties* = []) : get object's property by array of keys. 
+
+--- **sum** (*list* = [], *isEven* = null, *min* = 0, *max* = 1e6) : return sum of elements after filtering by *isEven* and borders.        
 
 --- **go** (*url* = '') : open browser's folder with source by *url*.   
 
