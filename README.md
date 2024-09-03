@@ -4,7 +4,7 @@
 
 Library to improve own experience working with JS.
 
-Current version: **1.0.6**
+Current version: **1.0.7**
 
 ## Links
 
@@ -73,7 +73,9 @@ const codus = new Codus()
 
 --- **getObjectProperty** (*obj* = {}, *properties* = []) : get object's property by array of keys. 
 
---- **sum** (*list* = [], *isEven* = null, *min* = 0, *max* = 1e6) : return sum of elements after filtering by *isEven* and borders.        
+--- **sum** (*list* = [], *isEven* = null, *min* = 0, *max* = 1e6) : return sum of elements after filtering by *isEven* and borders.    
+
+--- **wordEnd** (*num* = 1, *base* = 'поезд', *isLessHalf*= 'а', *isMoreHalf* = 'ов') : set right ending of noun word with its numeral in slavic languages. 
 
 --- **go** (*url* = '') : open browser's folder with source by *url*.   
 

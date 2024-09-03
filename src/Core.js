@@ -320,6 +320,22 @@ class Codus {
         return result
     }
 
+    wordEnd(num = 1, base = 'поезд', isLessHalf= 'а', isMoreHalf = 'ов') {
+        let text = String(num)
+        let last = Number(text[text.length - 1])
+        let result = ''
+       
+        if (last === 1 && (num >= 2e1 || num === 1)) {
+            result = base
+        } if (last < 5 && (num < 1e1 || num > 2e1)) {
+            result = base + isLessHalf
+        } else if (last >= 5 || (num > 1 && num < 2e1)) {
+            result = base + isMoreHalf
+        }
+
+        return result
+    }
+
     go(url = '') {
         window.open(url)
     }
