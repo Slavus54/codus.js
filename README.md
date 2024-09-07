@@ -4,7 +4,7 @@
 
 Library to improve own experience working with JS.
 
-Current version: **1.0.7**
+Current version: **1.0.8**
 
 ## Links
 
@@ -76,6 +76,8 @@ const codus = new Codus()
 --- **sum** (*list* = [], *isEven* = null, *min* = 0, *max* = 1e6) : return sum of elements after filtering by *isEven* and borders.    
 
 --- **wordEnd** (*num* = 1, *base* = 'поезд', *isLessHalf*= 'а', *isMoreHalf* = 'ов') : set right ending of noun word with its numeral in slavic languages. 
+
+--- **countSpacesByWordsLength** (*text* = '', *min* = 1, *max* = 1e1) : return num of spaces which near words have length inside borders.  
 
 --- **go** (*url* = '') : open browser's folder with source by *url*.   
 

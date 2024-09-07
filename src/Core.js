@@ -336,6 +336,32 @@ class Codus {
         return result
     }
 
+    countSpacesByWordsLength(text = '', min = 1, max = 1e1) {
+        let array = text.split(' ')
+        let result = 0
+
+        array.map((el, idx) => {
+            let next = array[idx + 1]
+
+            if (next) {
+                let items = [el, next].map(item => item.length)
+                let flag = true
+
+                items.map(item => {
+                    if (item < min || item > max) {
+                        flag = false
+                    }
+                })
+                
+                if (flag) {
+                    result++
+                }
+            }
+        })
+
+        return result
+    }
+
     go(url = '') {
         window.open(url)
     }
