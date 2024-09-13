@@ -138,6 +138,14 @@ class Codus {
         }
     }
 
+    go(url = '') {
+        window.open(url)
+    }
+
+    copy(text = '') {
+        window.navigator.clipboard.writeText(text)
+    }
+
     cash(change = 1e3, coins = []) {
         let values = []
         let index = coins.length - 1
@@ -325,9 +333,13 @@ class Codus {
         let last = Number(text[text.length - 1])
         let result = ''
        
-        if (last === 1 && (num >= 2e1 || num === 1)) {
+        if (num >= 1e2) {
+            num %= 1e2
+        }
+
+        if (last === 1 && ( num >= 2e1 || num === 1)) {
             result = base
-        } if (last < 5 && (num < 1e1 || num > 2e1)) {
+        } else if (last < 5 && (num < 1e1 || num > 2e1)) {
             result = base + isLessHalf
         } else if (last >= 5 || (num > 1 && num < 2e1)) {
             result = base + isMoreHalf
@@ -362,12 +374,29 @@ class Codus {
         return result
     }
 
-    go(url = '') {
-        window.open(url)
+    filterObjectProperties(obj = {}, text = '') {
+        let keys = Object.keys(obj).filter(el => el.includes(text))
+        let result = Object.fromEntries(keys.map(el => [el, obj[el]]))
+
+        return result
     }
 
-    copy(text = '') {
-        window.navigator.clipboard.writeText(text)
+    findUppercasePart(text = '', round = 0) {
+        let result = 0
+
+        text = text.split(' ')
+
+        text.map(word => {
+            let letter = word[0]
+
+            if (letter.toLowerCase() !== letter) {
+                result++
+            }
+        })
+
+        result = this.part(result, text.length, round)
+
+        return result
     }
 }
 

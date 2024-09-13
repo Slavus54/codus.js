@@ -4,7 +4,7 @@
 
 Library to improve own experience working with JS.
 
-Current version: **1.0.8**
+Current version: **1.0.9**
 
 ## Links
 
@@ -51,6 +51,10 @@ const codus = new Codus()
 
 --- **debounce** (*func*, *timestamp* = 5e2) : return function with an interval.
 
+--- **go** (*url* = '') : open browser's folder with source by *url*.   
+
+--- **copy** (*text* = '') : copy message by *text* and save it in clipboard. 
+
 --- **cash** (*change* = 1e3, *coins* = []) : counts number of different coins to pay *change* and return an object with residue and number of coins {change, values}.    
 
 --- **mutateObject** (*object* = {}, *properties* = [], *values* = []) : change values of object's properties with an array and return updated object.    
@@ -79,6 +83,6 @@ const codus = new Codus()
 
 --- **countSpacesByWordsLength** (*text* = '', *min* = 1, *max* = 1e1) : return num of spaces which near words have length inside borders.  
 
---- **go** (*url* = '') : open browser's folder with source by *url*.   
+--- **filterObjectProperties** (*obj* = {}, *text* = '') : filter properties of object by including *text* and returns cut off object.  
 
---- **copy** (*text* = '') : copy message by *text* and save it in clipboard.   
+--- **findUppercasePart** (*text* = '', *round* = 0) : return rounded % of uppercase words in text.  
