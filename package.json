@@ -1,15 +1,21 @@
 {
   "name": "codus.js",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "main": "index.js",
   "scripts": {
     "dev": "node index.js"
   },
-  "keywords": ["number", "cords", "text", "array"],
+  "keywords": [
+    "number",
+    "object",
+    "cords",
+    "text",
+    "array"
+  ],
   "author": "Slavus54",
   "license": "NSTU",
   "description": "",
   "dependencies": {
-    "node": "^20.16.0"
+    "node": "^22.10.0"
   }
 }

@@ -43,32 +43,8 @@ class Codus {
         return result
     }
 
-    round(num = 1e1, residue = 0) {
-        let result
-
-        if (Boolean(residue)) {
-            result = String(num).split('.')
-
-            let left = result[1].split('').map(el => Number(el)).reverse()
-            let toCompare = left[left.length - residue] 
-            let pick = 0
-    
-            for (let i = 0; i < left.length - (residue + 1); i++) {
-                let current = Boolean(i) ? pick : left[i]
-                let next = left[i + 1]
-                
-                if (current && next) {
-                    pick = current > 4 ? next + 1 : next
-                }
-            }
-    
-            result = result[0] + '.' + left.slice(left.length - (residue - 1)).reverse().join('') + (pick > 4 ? toCompare + 1 : toCompare)
-
-        } else {
-            result = parseInt(num)
-        }       
-
-        return result
+    round(num = 1, digit = 0) {
+        return parseFloat(num.toFixed(digit))
     }
 
     percent(value = 0, total = 1e1, round = 0) {
