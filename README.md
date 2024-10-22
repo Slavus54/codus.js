@@ -4,16 +4,13 @@
 
 Library to improve own experience working with JS.
 
-Current version: **1.1.0**
+Current version: **1.1.1**
 
 ## Links
 
 To download - *https://www.npmjs.com/package/codus.js* 
 
 To look code - *https://github.com/Slavus54/codus.js* 
-
-## History
-
 
 ## Getting Started         
 
@@ -86,3 +83,5 @@ const codus = new Codus()
 --- **filterObjectProperties** (*obj* = {}, *text* = '') : filter properties of object by including *text* and returns cut off object.  
 
 --- **findUppercasePart** (*text* = '', *round* = 0) : return rounded % of uppercase words in text.  
+
+--- **id** (*length* = 1, *isNum* = true, *uppercaseSchema* = []) : build ID with size by *length*, may includes numbers and list of multiplicity nums as positions of ID symbols which will be uppercase.        

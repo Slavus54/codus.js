@@ -1,3 +1,5 @@
+const {abc, digits} = require('./data')
+
 class Codus {
     rad(value = 1) {
         return Math.PI * value / 18e1
@@ -372,6 +374,26 @@ class Codus {
 
         result = this.part(result, text.length, round)
 
+        return result
+    }
+
+    id(length = 1, isNum = true, uppercaseSchema = []) {
+        let letters = isNum ? [...abc, ...digits] : abc
+        let result = ''
+        let pointer = 0
+
+        for (let i = 0; i < length; i++) {
+            let position = i + 1
+            let value = letters[Math.floor(Math.random() * letters.length)]
+
+            if (position % uppercaseSchema[pointer] === 0) {
+                value = value.toUpperCase()
+                pointer++
+            }
+
+            result += value
+        }
+ 
         return result
     }
 }
