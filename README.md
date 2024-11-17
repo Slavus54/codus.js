@@ -4,7 +4,7 @@
 
 Library to improve own experience working with JS.
 
-Current version: **1.1.1**
+Current version: **1.1.2**
 
 ## Links
 
@@ -84,4 +84,10 @@ const codus = new Codus()
 
 --- **findUppercasePart** (*text* = '', *round* = 0) : return rounded % of uppercase words in text.  
 
---- **id** (*length* = 1, *isNum* = true, *uppercaseSchema* = []) : build ID with size by *length*, may includes numbers and list of multiplicity nums as positions of ID symbols which will be uppercase.        
+--- **id** (*length* = 1, *isNum* = true, *uppercaseSchema* = []) : build ID with size by *length*, may includes numbers and list of multiplicity nums as positions of ID symbols which will be uppercase.  
+
+--- **findWordByDynamicLength** (*text* = '', *percent* = 5e1) : return word with length by % of logest word in text.   
+
+--- **direction** (*lat1*, *long1*, *lat2*, *long2*) : return text with direction of moving from current to next map' dot.  
+
+--- **passwordDifficulty** (*text* = '', *base* = 1, *multiplier* = 1.5) : estimate password difficulty and return number of points.    

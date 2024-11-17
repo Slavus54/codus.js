@@ -396,6 +396,61 @@ class Codus {
  
         return result
     }
+
+    findWordByDynamicLength(text = '', percent = 5e1) {
+        let words = text.split(' ')
+        let max = Math.max(...words.map(el => el.length))
+        let length = this.percent(percent, max, 0)
+        let result = words.find(el => el.length === length)
+
+        return result
+    }
+
+    direction(lat1, long1, lat2, long2) {        
+        let result = lat1 > lat2 ? 'south ' : 'north '
+
+        result += long1 > long2 ? 'west' : 'east'
+
+        return result
+    }
+
+    passwordDifficulty(text = '', base = 1, multiplier = 1.5) {
+        const length = text.length
+
+        let middle = length / 2
+        let result = length
+
+        text = text.split('')      
+
+        for (let i = 0; i < middle; i++) {
+            let current = text[i]
+            let next = text[i + 1]
+            let points = 0
+
+            if (next) {
+                if (current !== next) {
+                    points += base * multiplier
+                }
+    
+                if (current.toUpperCase() !== current && next.toUpperCase() === next) {
+                    points += base
+                }
+
+                if (next.toUpperCase() !== next && current.toUpperCase() === current) {
+                    points += base
+                }
+
+                if (isNaN(current) && !isNaN(next) || !isNaN(current) && isNaN(next)) {
+                    points += base * multiplier
+                }
+            }         
+
+            result += points
+        }
+        
+
+        return result
+    }
 }
 
 module.exports = {Codus}
