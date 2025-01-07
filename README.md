@@ -1,16 +1,14 @@
-# Codus.JS       
+## About             
 
-## Description             
+Library to improve own experience working with JS. :gem:
 
-Library to improve own experience working with JS.
+Current version: **1.1.3** :star:   
 
-Current version: **1.1.2**
+There are *35* methods to try :trophy:
 
 ## Links
 
 To download - *https://www.npmjs.com/package/codus.js* 
-
-To look code - *https://github.com/Slavus54/codus.js* 
 
 ## Getting Started         
 
@@ -22,7 +20,30 @@ const codus = new Codus()
 
 ## Examples
 
+How to count distance between Vienna and Bratislava in km? :globe_with_meridians:      
 
+~~~
+    let start_coords: Cords = {lat: 48.2085, long: 16.3731} 
+    let end_coords: Cords = {lat: 48.1434, long: 17.1082}   
+
+    console.log(codus.haversine(start_coords.lat, start_coords.long, end_coords.lat, end_coords.long)) // 55.04715597243234 
+~~~     
+
+Validate and convert text to card number :credit_card:      
+
+~~~
+    let text: string = 'Hel224ore asds87967243232435'   
+
+    console.log(codus.card(text)) // 2248-7967-2432-3243    
+~~~
+
+Create new ID or password for user Slavus54 :computer:     
+
+~~~
+    let result: string = codus.id(5)
+
+    console.log(result) // p1f0j
+~~~
 
 ## Methods     
 
@@ -91,3 +112,5 @@ const codus = new Codus()
 --- **direction** (*lat1*, *long1*, *lat2*, *long2*) : return text with direction of moving from current to next map' dot.  
 
 --- **passwordDifficulty** (*text* = '', *base* = 1, *multiplier* = 1.5) : estimate password difficulty and return number of points.    
+
+--- **hash** (*schema* = [], *divider* = '-') : creates hash string by *schema* length of pieces and *dividers* between each pair.    

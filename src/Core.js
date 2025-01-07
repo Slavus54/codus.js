@@ -79,7 +79,7 @@ class Codus {
 
         if (isConvert) {
 
-            text.split('').slice(0, 16).map((el, idx) => {
+            text.split('').filter(el => !isNaN(el) && el !== ' ').slice(0, 16).map((el, idx) => {
                 if ((idx + 1) % 4 === 0) {
                     result += `${el}-`
                 } else {
@@ -448,6 +448,30 @@ class Codus {
             result += points
         }
         
+
+        return result
+    }
+
+    hash(schema = [], divider = '-') {
+        const length = schema.length
+        let result = ''
+
+        schema.map((size, idx) => {
+            let piece = ''
+          
+            for (let i = 0; i < size; i++) {
+                let flag = Math.round(Math.random() * 1e2) > 50
+                let items = flag ? abc : digits
+
+                piece += items[Math.floor(items.length * Math.random())]
+            }
+
+            if (idx + 1 < length) {
+                piece += divider
+            }
+
+            result += piece
+        })
 
         return result
     }
